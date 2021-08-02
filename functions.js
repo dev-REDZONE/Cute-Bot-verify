@@ -72,8 +72,8 @@ function embedbuilder(client, deletetime, message, color, title, description, th
             .setColor(color)
             .setAuthor(message.author.tag, message.member.user.displayAvatarURL({
                 dynamic: true
-            }), "https://dc.musicium.eu")
-            .setFooter(client.user.username + " | by: milrato.eu", client.user.displayAvatarURL());
+            }), "")
+            .setFooter(client.user.username + " | by: jano", client.user.displayAvatarURL());
         if (title) embed.setTitle(title);
         if (description) embed.setDescription(description);
         if (thumbnail) embed.setThumbnail(thumbnail)
@@ -118,7 +118,7 @@ function QueueEmbed(client, queue) {
                 .setTitle("Server Queue")
                 .setColor(config.colors.yes)
                 .setDescription(`**Current Song - [\`${qus[0].name}\`](${qus[0].url})**\n\n${info}`)
-                .setFooter(client.user.username + " | by: milrato.eu", client.user.displayAvatarURL())
+                .setFooter(client.user.username + " | by: jano", client.user.displayAvatarURL())
             embeds.push(embed);
         }
         //returning the Embed
@@ -185,21 +185,21 @@ async function playsongyes(client, message, queue, song) {
         let embed1 = new Discord.MessageEmbed()
 
             .setColor(config.colors.yes)
-            .setTitle("🎶 Playing Song!")
+            .setTitle("<a:jano_31:834550131658326055> Playing Song!")
             .setDescription(`Song: [\`${song.name}\`](${song.url})`)
-            .addField("💡 Requested by:", `>>> ${song.user}`, true)
-            .addField("⏱ Duration:", `>>> \`${queue.formattedCurrentTime} / ${song.formattedDuration}\``, true)
-            .addField("🌀 Queue:", `>>> \`${queue.songs.length} song(s) - ${queue.formattedDuration}\``, true)
-            .addField("🔊 Volume:", `>>> \`${queue.volume} %\``, true)
-            .addField("♾ Loop:", `>>> ${queue.repeatMode ? queue.repeatMode === 2 ? "✅ Queue" : "✅ Song" : "❌"}`, true)
-            .addField("↪️ Autoplay:", `>>> ${queue.autoplay ? "✅" : "❌"}`, true)
-            .addField("❔ Download Song:", `>>> [\`Click here\`](${song.streamURL})`, true)
-            .addField("❔ Filter:", `>>> \`${queue.filter || "❌"}\``, true)
-            .addField("🎧 DJ-Role:", `>>> ${djs}`, true)
-            .setFooter(client.user.username + " | by: milrato.eu", client.user.displayAvatarURL())
+            .addField("<a:jano_28:799630995317850152> Requested by:", `>>> ${song.user}`, true)
+            .addField("<a:jano_44:840250687610683442> Duration:", `>>> \`${queue.formattedCurrentTime} / ${song.formattedDuration}\``, true)
+            .addField("<a:jano_49:840252555523260446> Queue:", `>>> \`${queue.songs.length} song(s) - ${queue.formattedDuration}\``, true)
+            .addField("<a:jano_45:840250785446363157> Volume:", `>>> \`${queue.volume} %\``, true)
+            .addField("<a:jano_47:840252353855881278> Loop:", `>>> ${queue.repeatMode ? queue.repeatMode === 2 ? "<a:jano_29:840650829257637900> Queue" : "<a:jano_29:840650829257637900> Song" : "<a:jano_26:799630865474256972>"}`, true)
+            .addField("<a:jano_22:840486258362417162> Autoplay:", `>>> ${queue.autoplay ? "<a:jano_29:840650829257637900>" : "<a:jano_26:799630865474256972>"}`, true)
+            .addField("<a:jano_43:840250638483062784> Download Song:", `>>> [\`Click here\`](${song.streamURL})`, true)
+            .addField("<a:jano_24:799630717507862558> Filter:", `>>> \`${queue.filter || "<a:jano_26:799630865474256972>"}\``, true)
+            .addField("<a:jano_31:834550131658326055> DJ-Role:", `>>> ${djs}`, true)
+            .setFooter(client.user.username + " | by: jano", client.user.displayAvatarURL())
             .setAuthor(message.author.tag, message.member.user.displayAvatarURL({
                 dynamic: true
-            }), "https://dc.musicium.eu")
+            }), "")
             .setThumbnail(`https://img.youtube.com/vi/${song.id}/mqdefault.jpg`)
 
         var playingMessage = await message.channel.send(embed1)
@@ -242,12 +242,12 @@ async function playsongyes(client, message, queue, song) {
 
             //if not a dj return error
             if (check_if_dj(reaction.message, member))
-                return embedbuilder(client, 6000, message, config.colors.no, "DJ-ROLE", `❌ You don\'t have permission for this Command! You need to have: ${check_if_dj(message)}`)
+                return embedbuilder(client, 6000, message, config.colors.no, "DJ-ROLE", `<a:jano_26:799630865474256972> You don\'t have permission for this Command! You need to have: ${check_if_dj(message)}`)
 
             switch (reaction.emoji.id || reaction.emoji.name) {
                 case "⏭":
                     client.distube.skip(message);
-                    embedbuilder(client, 3000, message, config.colors.yes, "SKIPPED!", `Skipped the song`)
+                    embedbuilder(client, 3000, message, config.colors.yes, "<a:jano_29:840650829257637900> Skipped", `Skipped the song`)
                     try {
                         playingMessage.reactions.removeAll();
                     } catch {}
@@ -272,6 +272,7 @@ async function playsongyes(client, message, queue, song) {
                     embedbuilder(client, 3000, message, config.colors.no, "STOPPED!", `Left the channel`)
                     break;
 
+                
                 case "🔉":
                     await client.distube.setVolume(message, Number(queue.volume) - 10);
                     embedbuilder(client, 3000, message, config.colors.yes, "Volume!", `Reduced the Volume to \`${queue.volume}\``)
@@ -329,20 +330,20 @@ function curembed(client, message) {
         let song = queue.songs[0];
         embed = new Discord.MessageEmbed()
             .setColor(config.colors.yes)
-            .setTitle("🎶 Playing Song:")
+            .setTitle("<a:jano_31:834550131658326055> Playing Song:")
             .setDescription(`> [\`${song.name}\`](${song.url})`)
-            .addField("💡 Requested by:", `>>> ${song.user}`, true)
-            .addField("⏱ Duration:", `>>> \`${queue.formattedCurrentTime} / ${song.formattedDuration}\``, true)
-            .addField("🌀 Queue:", `>>> \`${queue.songs.length} song(s) - ${queue.formattedDuration}\``, true)
-            .addField("🔊 Volume:", `>>> \`${queue.volume} %\``, true)
-            .addField("♾ Loop:", `>>> ${queue.repeatMode ? queue.repeatMode === 2 ? "✅ Queue" : "✅ Song" : "❌"}`, true)
-            .addField("↪️ Autoplay:", `>>> ${queue.autoplay ? "✅" : "❌"}`, true)
-            .addField("❔ Filter:", `>>> \`${queue.filter || "❌"}\``, true)
-            .addField("🎧 DJ-Role:", `>>> ${djs}`, true)
-            .setFooter(client.user.username + " | by: milrato.eu", client.user.displayAvatarURL())
+            .addField("<a:jano_28:799630995317850152> Requested by:", `>>> ${song.user}`, true)
+            .addField("<a:jano_44:840250687610683442> Duration:", `>>> \`${queue.formattedCurrentTime} / ${song.formattedDuration}\``, true)
+            .addField("<a:jano_49:840252555523260446> Queue:", `>>> \`${queue.songs.length} song(s) - ${queue.formattedDuration}\``, true)
+            .addField("<a:jano_45:840250785446363157> Volume:", `>>> \`${queue.volume} %\``, true)
+            .addField("<a:jano_47:840252353855881278> Loop:", `>>> ${queue.repeatMode ? queue.repeatMode === 2 ? "<a:jano_29:840650829257637900> Queue" : "<a:jano_29:840650829257637900> Song" : "<a:jano_26:799630865474256972>"}`, true)
+            .addField("<a:jano_22:840486258362417162> Autoplay:", `>>> ${queue.autoplay ? "<a:jano_29:840650829257637900>" : "<a:jano_26:799630865474256972>"}`, true)
+            .addField("<a:jano_24:799630717507862558> Filter:", `>>> \`${queue.filter || "<a:jano_26:799630865474256972>"}\``, true)
+            .addField("<a:jano_31:834550131658326055> DJ-Role:", `>>> ${djs}`, true)
+            .setFooter(client.user.username + " | by: jano", client.user.displayAvatarURL())
             .setAuthor(message.author.tag, message.member.user.displayAvatarURL({
                 dynamic: true
-            }), "https://dc.musicium.eu")
+            }), "")
             .setThumbnail(song.thumbnail)
         return embed; //sending the new embed back
     } catch (error) {
