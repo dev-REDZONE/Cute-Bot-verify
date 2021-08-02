@@ -9,20 +9,10 @@ module.exports = {
     run: async (client, message, args) => {
         let inviteembed = new Discord.MessageEmbed()
             .setColor(config.colors.yes)
-            .setTitle("Invite, Musicium")
-            .setDescription("[INVITE ME NOW, thanks](https://dc.musicium.eu)\n\n[Invite 2021's Fastest Music Bot](https://lava.milrato.eu)")
-            .setFooter("Musicium", client.user.displayAvatarURL())
+            .setTitle("Invite, Calms Bot")
+            .setDescription("**[ Invite Me Now , thanks](https://discord.com/api/oauth2/authorize?client_id=828921463348264982&permissions=0&scope=bot)** ")
+            .setFooter("Calms Bot", client.user.displayAvatarURL())
 
         message.reply(inviteembed);
     }
 }
-
-/**
- * @INFO
- * Bot Coded by Tomato#6966 | https://github.com/Tomato6966/discord-js-lavalink-Music-Bot-erela-js
- * @INFO
- * Work for Milrato Development | https://milrato.eu
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */
