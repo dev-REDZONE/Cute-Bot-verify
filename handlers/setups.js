@@ -14,11 +14,11 @@ module.exports = (client) => {
             usercount *= 10;
             usercount = usercount.toString().slice(3)
             stateswitch = !stateswitch; //change state
-            if (stateswitch) client.user.setActivity(`${config.prefix}help | musicium.eu`, {
-                type: "PLAYING"
+            if (stateswitch) client.user.setActivity(`${config.prefix}help | Calms Bot`,{
+                type: "WATCHING"
             });
-            else client.user.setActivity(`${usercount}k User | ${client.guilds.cache.size} Server`, {
-                type: "PLAYING"
+            else client.user.setActivity(`Users ${client.guilds.cache.reduce((a, g) => a + g.memberCount, 0)}, | ${client.guilds.cache.size} Server`,{
+                type: "WATCHING"
             });
         }, 5000); //5 second delay
 
@@ -102,14 +102,7 @@ module.exports = (client) => {
     function getAll(client, guild) {
         const embed = new MessageEmbed()
             .setColor(config.colors.yes)
-            .setTitle('Help Menu - THANKS FOR INVITING ME!')
-            .addField("**__BOT BY:__**", `
-                >>> <@442355791412854784> \`Tomato#6966\` [\`Website\`](https://milrato.eu) [\`INVITE\`](https://discord.com/api/oauth2/authorize?client_id=789845410998779904&permissions=8&scope=bot)
-                `)
-            .addField("**__Music - Supported sources__**", `
-                >>> \`Youtube\`, \`Soundcloud\`, [\`More\`](https://links.musicium.eu), ...
-                `)
-            .setFooter("To see command descriptions and usage type   p!help [CMD Name]", client.user.displayAvatarURL())
+           
 
         const commands = (category) => {
             return client.commands
