@@ -11,20 +11,20 @@ module.exports = (client) => {
         client.api.applications(client.user.id).commands.post({
             data: {
                 name: "help",
-                description: "Shows you information for every cmd"
+                description: "**Shows you information for every cmd**"
             }
         });
         client.api.applications(client.user.id).commands.post({
             data: {
-                name: "info",
-                description: "See some information about Musicium"
+                name: "about",
+                description: "**See some information about Hyper Canary**"
             }
         });
         client.api.applications(client.user.id).commands.post({
 
             data: {
                 name: "invite",
-                description: "Invite the Bot to your Own server and get the ultimate music expierence"
+                description: "**Invite the Bot to your Own server and get the ultimate music expierence**"
             }
         });
         client.ws.on('INTERACTION_CREATE', async interaction => {
@@ -36,9 +36,8 @@ module.exports = (client) => {
             const inviteembed = new Discord.MessageEmbed()
                 .setColor(config.colors.yes)
                 .setTitle("Invite me now!")
-                .setDescription(`[\`Click here\`](https://dc.musicium.eu)   |   [\`Website\`](https://musicium.eu)   |   :heart: Thanks for inviting!`)
                 .setFooter(client.user.username + " | Syntax:  <>...must    []...optional", client.user.displayAvatarURL())
-                .setAuthor(interaction.member.user.username, client.user.displayAvatarURL(), "https://dc.musicium.eu")
+                .setAuthor(interaction.member.user.username, client.user.displayAvatarURL(), "")
             let totalMembers = client.guilds.cache.reduce((c, g) => c + g.memberCount, 0);
             let days = Math.floor(client.uptime / 86400000);
             let hours = Math.floor(client.uptime / 3600000) % 24;
@@ -48,7 +47,7 @@ module.exports = (client) => {
             const infoembed = new Discord.MessageEmbed()
                 .setAuthor(
                     `Information about the ${client.user.username} Bot`,
-                    client.user.displayAvatarURL(), "https://dc.musicium.eu"
+                    client.user.displayAvatarURL(), ""
                 )
                 .setColor(config.colors.yes)
                 .addFields({
@@ -83,7 +82,7 @@ module.exports = (client) => {
                         inline: true,
                     }, {
                         name: 'Owner and Developer',
-                        value: `**\`Tomato#6966\` <@442355791412854784>**`,
+                        value: `** <@681553671364018196>**`,
                         inline: true,
                     },
                 )
@@ -91,42 +90,12 @@ module.exports = (client) => {
             \u200b
             `)
                 .addField("***BOT BY:***", `
-            >>> <@442355791412854784> \`Tomato#6966\` [\`Website\`](https://musicium.eu)
+            >>> <@681553671364018196> 
             `)
-                .addField("***SUPPORT:***", `
-            >>> [\`Server\`](https://discord.gg/fS6qBSm) | [\`Musicium - Website\`](https://musicium.eu) | [\`Invite\`](https://dc.musicium.eu/)
-            `)
+     
             const helpembed = new Discord.MessageEmbed()
                 .setColor(config.colors.yes)
-                .setTitle(`Help Menu\nPrefix: \`${prefix}\``)
-                .addField("\u200b", "\u200b")
-                .addField("**BASSBOOST FILTER INFORMATION**", `
-                >>> You can now change the gain of your Bassboost from \`1\`-\`20\`! Example: \`${prefix}bassboost 10\` *Makes a Bassboost with 10db Gain*
-                `)
-                .addField("**PREMADE CUSTOM PLAYLISTS**", `
-                >>> there are several Custom playlists which you can play, each one has 75 songs!
-                
-                1. Charts
-                2. Christmas
-                3. Jazz
-                4. Blues
-                5. Country
-                6. Rock
-                *more coming soon*
-                play them by \`${prefix}playlist <Playlist Number.>\`
-                `)
-                .addField("**RADIO STATIONS**", `
-                >>> there are over 200 radio stations available, you can see them by typing \`${prefix}radio\`
-                and play them by \`${prefix}radio <stationnum.>\`
-                `)
-                .addField("\u200b", "\u200b")
-                .addField("**__BOT BY:__**", `
-                >>> <@442355791412854784> \`Tomato#6966\` [\`Website\`](https://musicium.eu) [\`INVITE\`](https://dc.musicium.eu)
-                `)
-                .addField("**__Music - Supported sources__**", `
-                >>> \`Youtube\`, \`Spotify\`, \`Soundcloud\`, [\`More\`](https://links.musicium.eu), ...
-                `)
-                .setFooter(`To see command descriptions and usage type   ${prefix}help [CMD Name]`, client.user.displayAvatarURL())
+               
 
             const commands = (category) => {
                 return client.commands
