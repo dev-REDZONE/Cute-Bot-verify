@@ -101,7 +101,7 @@ client.on("message", async message => {
 
     if (!message.content.startsWith(prefix) && message.content.includes(client.user.id))
         if (!message.guild.me.permissionsIn(message.channel).has("EMBED_LINKS"))
-            message.reply(new Discord.MessageEmbed().setColor(config.colors.yes).setAuthor(`${message.author.username}, My prefix is ${prefix}, to get started; type ${prefix}help`, message.author.displayAvatarURL({
+            message.reply(new Discord.MessageEmbed().setColor(config.colors.yes).setAuthor(`My prefix is ${prefix}, to get started; type ${prefix}help`, message.author.displayAvatarURL({
                 dynamic: true
             }), "https://dc.musicium.eu"));
         else
