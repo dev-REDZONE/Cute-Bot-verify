@@ -17,7 +17,7 @@ module.exports = (client) => {
         client.api.applications(client.user.id).commands.post({
             data: {
                 name: "about",
-                description: "**See some information about Hyper Canary**"
+                description: "**See some information about JOKER STAFF**"
             }
         });
         client.api.applications(client.user.id).commands.post({
@@ -82,7 +82,7 @@ module.exports = (client) => {
                         inline: true,
                     }, {
                         name: 'Owner and Developer',
-                        value: `** <@681553671364018196>**`,
+                        value: `** <@767108799785598977>**`,
                         inline: true,
                     },
                 )
@@ -90,7 +90,7 @@ module.exports = (client) => {
             \u200b
             `)
                 .addField("***BOT BY:***", `
-            >>> <@681553671364018196> 
+            >>> <@767108799785598977> 
             `)
      
             const helpembed = new Discord.MessageEmbed()
