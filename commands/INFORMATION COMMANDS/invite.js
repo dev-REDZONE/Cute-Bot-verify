@@ -10,7 +10,7 @@ module.exports = {
         let inviteembed = new Discord.MessageEmbed()
             .setColor(config.colors.yes)
             .setTitle("Invite, JOKER STAFF")
-            .setDescription("**[ Invite Me Now , thanks](https://discord.com/api/oauth2/authorize?client_id=843107387326201887&permissions=8&scope=bot)** ")
+            .setDescription("**[ Invite Me Now , thanks](https://discord.com/api/oauth2/authorize?client_id=863836317016260670&permissions=0&scope=bot)** ")
             .setFooter("JOKER STAFF", client.user.displayAvatarURL())
 
         message.reply(inviteembed);
