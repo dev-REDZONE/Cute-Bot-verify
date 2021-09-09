@@ -17,7 +17,7 @@ module.exports = (client) => {
         client.api.applications(client.user.id).commands.post({
             data: {
                 name: "about",
-                description: "**See some information about JOKER STAFF**"
+                description: "**See some information about Cute Bot**"
             }
         });
         client.api.applications(client.user.id).commands.post({
