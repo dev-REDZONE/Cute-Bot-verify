@@ -9,9 +9,9 @@ module.exports = {
     run: async (client, message, args) => {
         let inviteembed = new Discord.MessageEmbed()
             .setColor(config.colors.yes)
-            .setTitle("Invite, JOKER STAFF")
-            .setDescription("**[ Invite Me Now , thanks](https://discord.com/api/oauth2/authorize?client_id=863836317016260670&permissions=0&scope=bot)** ")
-            .setFooter("JOKER STAFF", client.user.displayAvatarURL())
+            .setTitle("Invite, Cute Bot")
+            .setDescription("**[ Invite Me Now , thanks](https://discord.com/api/oauth2/authorize?client_id=828921463348264982&permissions=8&scope=bot)** ")
+            .setFooter("Cute Bot", client.user.displayAvatarURL())
 
         message.reply(inviteembed);
     }
