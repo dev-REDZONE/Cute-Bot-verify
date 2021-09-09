@@ -14,7 +14,7 @@ module.exports = (client) => {
             usercount *= 10;
             usercount = usercount.toString().slice(3)
             stateswitch = !stateswitch; //change state
-            if (stateswitch) client.user.setActivity(`${config.prefix}help | JOKER STAFF`,{
+            if (stateswitch) client.user.setActivity(`${config.prefix}help | Cute Bot`,{
                 type: "WATCHING"
             });
             else client.user.setActivity(`Users ${client.guilds.cache.reduce((a, g) => a + g.memberCount, 0)}, | ${client.guilds.cache.size} Server`,{
